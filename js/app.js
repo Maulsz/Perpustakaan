@@ -31,17 +31,22 @@ const statistikPerpus = {
 // Mengubah data menjadi HTML yang tampil di browser
 // =============================================
 
+/**
+ * FUNGSI: membuat struktur HTML untuk kartu buku
+ * PARAMETER: objek 'buku' yang berisi detail buku
+ * RETURN: string HTML yang siap dimasukkan ke DOM
+ */
 function buatKartuBuku(buku) {
-  // Tentukan badge status berdasarkan ketersediaan buku
+  // 1. Logika Kondisi: Tentukan nama kelas CSS & teks status berdasarkan ketersediaan (true/false)
   const kelasStatus = buku.tersedia ? "badge-tersedia" : "badge-dipinjam";
   const teksStatus = buku.tersedia ? "Tersedia" : "Sedang Dipinjam";
 
-  // Hitung stok yang tersedia sekarang
+  // 2. Kalkulasi: Hitung sisa stok buku fisik yang belum dipinjam
   const stokTersedia = buku.stok - buku.dipinjam;
 
-  // Bangun string HTML untuk kartu buku
+  // 3. Template HTML: Merakit layout kartu dengan menyisipkan data variabel menggunakan ${}
   const htmlKartu = `
-    <div class="kartu-buku">
+   <div class="kartu-buku">
       <h3 class="kartu-judul">${buku.judul}</h3>
       <p class="kartu-penulis">oleh ${buku.penulis}</p>
 
@@ -70,11 +75,18 @@ function buatKartuBuku(buku) {
   return htmlKartu;
 }
 
+/**
+ * FUNGSI: membuat struktur HTML untuk statistik/ringkasan perpustakaan
+ * PARAMETER: objek 'statistik' yang berisi data total angka
+ * RETURN: string HTML yang siap dimasukkan ke DOM
+ */
 function buatRingkasan(statistik) {
+  // Template HTML: Merakit tampilan grid angka statistik
   const htmlRingkasan = `
-    <div class="ringkasan-grid">
+  <div class="ringkasan-grid">
       <div class="ringkasan-item">
         <span class="ringkasan-angka">
+          <!-- .toLocaleString("id-ID") mengubah angka biasa menjadi format ribuan Indonesia (contoh: 1250 -> 1.250) -->
           ${statistik.totalKoleksi.toLocaleString("id-ID")}
         </span>
         <p class="ringkasan-label">Total Koleksi</p>
@@ -107,16 +119,16 @@ function inisialisasiHalaman() {
   const kontainerBuku = document.getElementById("kontainer-buku");
   const kontainerRingkasan = document.getElementById("kontainer-ringkasan");
 
-  // Render kartu buku ke halaman
+  // .innerHTML adalah properti DOM yang berfungsi menyuntikkan/menampilkan string HTML ke dalam elemen target di halaman web
   kontainerBuku.innerHTML = buatKartuBuku(bukuPertama);
 
   // Render ringkasan ke halaman
   kontainerRingkasan.innerHTML = buatRingkasan(statistikPerpus);
 
-  // Log konfirmasi ke Console
-  console.log("Perpus berhasil diinisialisasi");
-  console.log("Buku ditampilkan:", bukuPertama.judul);
-  console.log("Total koleksi:", statistikPerpus.totalKoleksi);
+  // Log konfirmasi ke console
+  console.log("Perpus berhasil di inisialisasi");
+  console.log("Buku ditampilkan: ", bukuPertama.judul);
+  console.log("Total koleksi: ", statistikPerpus.totalKoleksi);
 }
 
 // Jalankan inisialisasi

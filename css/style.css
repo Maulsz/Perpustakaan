@@ -116,6 +116,12 @@ body {
   gap: 16px;
 }
 
+@media (max-width: 499px) {
+  .ringkasan-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .ringkasan-item {
   background: white;
   border-radius: 10px;
