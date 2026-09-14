@@ -1,0 +1,146 @@
+/* Reset dan base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+.header {
+  background-color: #2563eb;
+  color: white;
+  padding: 24px 32px;
+}
+
+.header-judul {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.header-tagline {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* Main content */
+.main {
+  max-width: 800px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+.seksi-buku,
+.seksi-ringkasan {
+  margin-bottom: 40px;
+}
+
+.seksi-judul {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+/* Kartu buku */
+.kartu-buku {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid #2563eb;
+}
+
+.kartu-judul {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.kartu-penulis {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 16px;
+}
+
+.kartu-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.kartu-item {
+  font-size: 13px;
+  color: #475569;
+}
+
+.kartu-item span {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* Badge status */
+.badge-status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.badge-tersedia {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.badge-dipinjam {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* Ringkasan */
+.ringkasan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.ringkasan-item {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.ringkasan-angka {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2563eb;
+  display: block;
+}
+
+.ringkasan-label {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 24px;
+  color: #94a3b8;
+  font-size: 13px;
+}
