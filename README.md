@@ -558,6 +558,121 @@ langsung membungkus listener `input` yang sudah ada di sana.
 
 ---
 
+## Bonus: Penjelasan Simpel Array Method (`.map()`, `.filter()`, `.join()`)
+
+Tiga method ini paling sering muncul di `app.js`, jadi penting dipahami
+dulu supaya bagian-bagian di atas lebih gampang nyambung.
+
+### `.map()` — "ubah setiap barang jadi barang baru"
+
+Bayangin kamu punya keranjang buah, terus tiap buah kamu bungkus pakai
+plastik. **Jumlah buahnya tetap sama**, cuma bentuknya berubah.
+
+```js
+const angka = [1, 2, 3];
+const hasil = angka.map((n) => n * 2);
+// hasil = [2, 4, 6]
+```
+
+Di kode kamu:
+
+```js
+koleksi.map((b) => b.kategori);
+```
+
+Dari array **buku** (object lengkap), diubah jadi array **kategori** saja
+(cuma string). 8 buku masuk → 8 kategori keluar. Jumlahnya tetap 8, cuma
+isinya berubah dari "object buku" jadi "string kategori".
+
+Contoh lain:
+
+```js
+koleksi.map((b) => renderKartuBuku(b, keyword));
+```
+
+8 object buku masuk → 8 string HTML `<div class="kartu-buku">...</div>` keluar.
+
+**Intinya:** `.map()` dipakai kalau kamu mau **jumlah data tetap sama**,
+tapi bentuknya diubah.
+
+### `.filter()` — "saring, buang yang gak lolos"
+
+Bayangin nyaring pasir pakai ayakan — cuma butiran yang cukup kecil yang
+lolos, sisanya ketahan. **Jumlah datanya bisa berkurang** (atau tetap kalau
+semua lolos).
+
+```js
+const angka = [1, 2, 3, 4, 5];
+const genap = angka.filter((n) => n % 2 === 0);
+// genap = [2, 4]
+```
+
+Di kode kamu:
+
+```js
+koleksi.filter((buku) => buku.kategori === kategori);
+```
+
+Tiap buku dicek satu-satu: "kategorinya cocok gak sama yang dicari?".
+Kalau `true` → buku itu **lolos**, masuk hasil. Kalau `false` → buku itu
+**dibuang**.
+
+Cara gampang inget bedanya sama `.map()`:
+
+|                    | `.map()`        | `.filter()`                     |
+| ------------------ | --------------- | ------------------------------- |
+| Fungsi di dalamnya | mengubah bentuk | jawab ya/tidak (`true`/`false`) |
+| Jumlah hasil       | selalu sama     | bisa lebih sedikit              |
+| Analoginya         | bungkus plastik | ayakan pasir                    |
+
+### `.join()` — "satukan jadi satu string, dikasih lem di antaranya"
+
+Ini yang paling sederhana. `.join()` cuma bekerja di **array**, mengubahnya
+jadi **satu string panjang**, dengan "lem" (separator) di antara tiap elemen.
+
+```js
+const buah = ["apel", "jeruk", "mangga"];
+buah.join(", "); // "apel, jeruk, mangga"
+buah.join(" - "); // "apel - jeruk - mangga"
+buah.join(""); // "apeljerukmangga"  (tanpa lem sama sekali)
+```
+
+Di kode kamu:
+
+```js
+koleksi.map((b) => renderKartuBuku(b, keyword)).join("");
+```
+
+1. `.map()` dulu → hasilnya array berisi 8 string HTML terpisah:
+   `["<div>buku1</div>", "<div>buku2</div>", ...]`
+2. `.join("")` → semua string itu digabung jadi **satu string besar**
+   tanpa pemisah apa-apa (karena kalau ada koma/spasi, akan merusak
+   tampilan HTML-nya). Hasilnya baru bisa dimasukkan ke `innerHTML`.
+
+**Kenapa harus `.join("")` dulu, gak langsung dari `.map()`?** Karena
+`.map()` hasilnya **array** (kumpulan string terpisah), sedangkan
+`innerHTML` cuma bisa menerima **satu string**, bukan array. Jadi
+`.join("")` tugasnya "meleburkan" array itu jadi satu string utuh.
+
+### Ringkasan Super Simpel
+
+| Method      | Analoginya          | Pertanyaan yang dijawab                 |
+| ----------- | ------------------- | --------------------------------------- |
+| `.map()`    | Bungkus tiap barang | "Tiap item mau diubah jadi apa?"        |
+| `.filter()` | Ayak/saring         | "Item ini dipertahankan atau dibuang?"  |
+| `.join()`   | Rekatkan jadi satu  | "Gimana cara gabungin array jadi teks?" |
+
+Pola yang sering dipakai berulang di kode kamu:
+
+```js
+array.map(...).join("");
+```
+
+artinya: **"ubah tiap item jadi HTML, lalu satukan semuanya jadi satu blok
+teks HTML."**
+
+---
+
 ## Alur Kerja Aplikasi Secara Keseluruhan
 
 ```
