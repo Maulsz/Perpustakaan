@@ -3,69 +3,57 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Perpus — Perpustakaan Digital</title>
+    <title>Perpus - Perpustakaan Digital</title>
     <link rel="stylesheet" href="css/style.css" />
-    <script src="js/app.js" defer></script>
   </head>
   <body>
     <header class="header">
-      <div class="header-konten">
-        <h1 class="header-judul">Perpus Hebat</h1>
-        <p class="header-tagline">Perpustakaan Digital Modern</p>
+      <div class="header-inner">
+        <h1 class="header-judul">Perpus</h1>
+        <p class="header-subjudul">Perpustakaan Digital</p>
       </div>
     </header>
 
     <main class="main">
-      <section class="seksi-filter">
-        <h2 class="seksi-judul">Koleksi Buku</h2>
+      <!-- Bagian Statistik -->
+      <section class="seksi-statistik">
+        <div id="ringkasan-statistik" class="grid-statistik">
+          <!-- Kartu statistik dirender JavaScript -->
+        </div>
+      </section>
 
-        <!-- Tambahan ke 3 -->
+      <!-- Bagian Pencarian & Filter -->
+      <section style="margin-bottom: 24px">
         <div class="kotak-search">
           <input
             type="text"
             id="input-search"
             class="input-search"
-            placeholder="Cari Judul atau Penulis"
-            autocomplete="off"
+            placeholder="Cari judul atau penulis..."
           />
           <button
             id="tombol-hapus-search"
             class="tombol-hapus-search"
             style="display: none"
           >
-            ✕
+            ✖
           </button>
         </div>
-
         <div id="tombol-filter" class="grup-filter">
-          <!-- Tombol filter akan dirender Javascript -->
+          <!-- Tombol filter dirender JavaScript -->
         </div>
-        <p id="info-jumlah" class="info-jumlah"></p>
+        <div id="info-jumlah" class="info-jumlah"></div>
       </section>
 
-      <section class="seksi-buku">
-        <div id="kontainer-buku" class="grid-buku">
-          <!-- Kartu buku akan dirender Javascript -->
-        </div>
-      </section>
-
-      <!-- <section class="seksi-buku">
+      <!-- Bagian Koleksi Buku -->
+      <section class="seksi-koleksi">
         <h2 class="seksi-judul">Koleksi Buku</h2>
-        <div id="kontainer-buku" class="grid-buku"> -->
-      <!-- Kartu buku akan dirender oleh JavaScript -->
-      <!-- </div>
-      </section> -->
-
-      <!-- <section class="seksi-ringkasan">
-        <h2 class="seksi-judul">Ringkasan Koleksi</h2>
-        <div id="kontainer-ringkasan"> -->
-      <!-- Ringkasan akan dirender oleh JavaScript -->
-      <!-- </div>
-      </section> -->
+        <div id="kontainer-buku" class="grid-buku">
+          <!-- Kartu buku dirender JavaScript -->
+        </div>
+      </section>
     </main>
 
-    <footer class="footer">
-      <p>© 2025 Perpus — Dibangun dengan JavaScript</p>
-    </footer>
+    <script src="js/app.js"></script>
   </body>
 </html>
